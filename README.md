@@ -55,3 +55,24 @@ The SOM output is visualized at several stages:
 
 I experimented with different values of \( \sigma_0 = 1, 10, 30, 50, 70 \) to observe how the topological neighborhood size influences the SOM's performance and output.
 
+## Results
+
+### Epoch-by-Epoch Visualization
+- **Initial Grid**: Randomly initialized weights.
+- **Epoch 20**: The SOM starts organizing colors, with clusters of similar colors forming.
+- **Epoch 40**: More defined clusters, with better separation between different colors.
+- **Epoch 100**: Clear patterns emerge, and colors are mapped in meaningful ways.
+- **Epoch 1000**: Final color map, with well-formed clusters and smooth transitions between similar shades.
+
+### Effect of \( \sigma_0 \) (Initial Neighborhood Size)
+- **Small \( \sigma_0 \)**: The SOM produces fine-grained patterns early on but takes longer to stabilize.
+- **Large \( \sigma_0 \)**: The SOM tends to converge faster initially but may not form as detailed a map in the final stages.
+- **Intermediate Values**: Provide a balance between initial convergence speed and final output quality.
+
+### Conclusions
+- **Neighborhood Size**: Smaller initial neighborhood sizes \( (\sigma_0) \) allow the network to fine-tune the map over time, whereas larger sizes result in faster convergence but with less detail.
+- **Learning Rate**: The exponentially decreasing learning rate \( \alpha(k) \) ensures that the SOM continues to adjust while gradually refining its mapping of colors.
+- **Training Epochs**: The network significantly improves over time, with most of the progress made by epoch 100. However, the map continues to fine-tune until the final epoch.
+
+This project demonstrates how the Kohonen Self-Organizing Map can effectively organize and map colors over a grid, producing a meaningful visual representation of input data.
+
